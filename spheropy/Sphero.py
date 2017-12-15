@@ -966,7 +966,7 @@ class Sphero(object):
         but if `response` is set to `True`, it's success field
         will indicate if the command was successful.
         """
-        if self._outside_range(timeout, 0, 0xFFFF):
+        if outside_range(timeout, 0, 0xFFFF):
             raise SpheroException("Timeout outside of valid range")
         timeout = int_to_bytes(timeout, 2)
         return self._stable_send(_SPHERO, _SPHERO_COMMANDS['MOTION TIMEOUT'], timeout, response)
