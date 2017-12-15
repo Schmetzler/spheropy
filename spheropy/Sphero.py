@@ -580,7 +580,7 @@ class Sphero(object):
         little = (wakeup_time & 0x00ff)
         reply = self._stable_send(_CORE, _CORE_COMMANDS['SLEEP'], [
             big, little, 0, 0, 0], response)
-        self.close()
+        self.disconnect()
         return reply
 
     def get_voltage_trip_points(self):
